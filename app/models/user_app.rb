@@ -15,5 +15,8 @@ class UserApp < ActiveRecord::Base
   validates :course_one, presence: true , uniqueness: true
   validates :course_two, presence: true , uniqueness: true
   validates :course_three, presence: true , uniqueness: true
-  
+  validates_attachment :ple_certificate, :uce_certificate, :uace_certificate,
+                       :presence => true,
+                       :content_type => { :content_type => ["image/jpg", "image/png"],
+                       :message => "Your attachment type is not allowed (only jpg/png)"}
 end

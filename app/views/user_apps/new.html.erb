@@ -2,7 +2,17 @@
 
 <h1>Application Form</h1>
 
+
 <%= form_for @user_app, url: user_apps_path, :html => {:multipart => true}  do |f| %>
+
+ <% if @user_app.errors.any?  %>
+  Your application form has <%= pluralize(@user_app.errors.count, "error") %>.
+  <% @user_app.errors.full_messages.each  do |msg| %>
+    <li>
+      <ul><%= msg %></ul>
+    </li>
+  <% end%>
+ <% end %>
 
  <p>
  	 <b><%= f.label :course_1 %></b>
