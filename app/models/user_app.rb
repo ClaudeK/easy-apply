@@ -12,9 +12,9 @@ class UserApp < ActiveRecord::Base
   has_attached_file :uace_certificate,:styles => {:medium => "300 * 300>"}
 
   #validations
-  validates :course_one, presence: true , uniqueness: true
-  validates :course_two, presence: true , uniqueness: true
-  validates :course_three, presence: true , uniqueness: true
+  validates :course_one, presence: true
+  validates :course_two, presence: true 
+  validates :course_three, presence: true 
   validates_attachment :ple_certificate, :uce_certificate, :uace_certificate,
                        :presence => true,
                        :content_type => { :content_type => ["image/jpg", "image/png"],

@@ -1,18 +1,29 @@
-<h2>Sign up</h2>
+<h1 align= "center" style="color:white">EasyApply</h1><br/>
+<h3 align = "center" style = "color:white"> Applying for College made Easy!! </h3>
+<div class = "center hero-unit">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div style=" padding-left: 25%; padding-bottom: 5%; border-width:4px; 
+             border-style:inset; border-radius:10px 10px 10px 1px;">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+	<h2>Sign up</h2>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	<%= form_for(resource, :as => resource_name,
+	     :url => registration_path(resource_name)) do |f| %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+	  <%= devise_error_messages! %>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+	  <div><%= f.label :email %><br />
+	  <%= f.email_field :email, :autofocus => true %></div>
 
-<%= render "devise/shared/links" %>
+	  <div><%= f.label :password %><br />
+	  <%= f.password_field :password %></div>
+
+	  <div><%= f.label :password_confirmation %><br />
+	  <%= f.password_field :password_confirmation %></div>
+
+      <div><%= f.submit "Sign up" %></div>
+
+	<% end %>
+
+	<%= render "devise/shared/links" %>
+</div>
