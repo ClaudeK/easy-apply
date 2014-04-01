@@ -1,52 +1,59 @@
+<h1 align= "center" style="color:white">EasyApply</h1><br/>
+<h3 align = "center" style = "color:white"> Applying for College made Easy!! </h3>
+<div class = "center hero-unit">
+
 <%= link_to "Home", root_path %>
+&nbsp
+<div style=" padding-left: 18%; padding-bottom: 5%; border-width:4px; 
+             border-style:inset; border-radius:10px 10px 10px 10px;" >
+ <h1>Application Form</h1>
 
-<h1>Application Form</h1>
 
+  <%= form_for @user_app, url: user_apps_path, :html => {:multipart => true}  do |f| %>
 
-<%= form_for @user_app, url: user_apps_path, :html => {:multipart => true}  do |f| %>
+   <% if @user_app.errors.any?  %>
+    Your application form has <%= pluralize(@user_app.errors.count, "error") %>.
+    <% @user_app.errors.full_messages.each  do |msg| %>
+      <li>
+        <ul><%= msg %></ul>
+      </li>
+    <% end%>
+   <% end %>
 
- <% if @user_app.errors.any?  %>
-  Your application form has <%= pluralize(@user_app.errors.count, "error") %>.
-  <% @user_app.errors.full_messages.each  do |msg| %>
-    <li>
-      <ul><%= msg %></ul>
-    </li>
-  <% end%>
- <% end %>
+   <p>
+   	 <b><%= f.label :course_1 %></b>
+      <%= f.text_field :course_one %>
+   </p>
 
- <p>
- 	 <b><%= f.label :course_1 %></b>
-    <%= f.text_field :course_one %>
- </p>
+   <p>
+   	<b><%= f.label :Course_2 %></b>
+      <%= f.text_field :course_two %>
+   </p>
 
- <p>
- 	<b><%= f.label :Course_2 %></b>
-    <%= f.text_field :course_two %>
- </p>
+   <p>
+   	<b><%= f.label :Course_3 %></b>
+      <%= f.text_field :course_three %>
+   </p>
 
- <p>
- 	<b><%= f.label :Course_3 %></b>
-    <%= f.text_field :course_three %>
- </p>
+   <p>
+   	<b>PLE Certificate:</b>
+      <%= f.file_field :ple_certificate %>
+   </p>
 
- <p>
- 	<b>PLE Certificate:</b>
-    <%= f.file_field :ple_certificate %>
- </p>
+   <p>
+   	<b>UCE Certificate:</b>
+      <%= f.file_field :uce_certificate %>
+   </p>
 
- <p>
- 	<b>UCE Certificate:</b>
-    <%= f.file_field :uce_certificate %>
- </p>
+   <p>
+   	<b>UACE Certificate:</b> 
+      <%= f.file_field :uace_certificate %>
+   </p>
 
- <p>
- 	<b>UACE Certificate:</b> 
-    <%= f.file_field :uace_certificate %>
- </p>
+   <p>
+    <%= f.submit "Save My Application"  %>
+   </p> 
 
- <p>
-  <%= f.submit "Save My Application"  %>
- </p> 
+  <% end %>
 
-<% end %>
-
+</div>

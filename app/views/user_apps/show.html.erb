@@ -1,26 +1,33 @@
+<h1 align= "center" style="color:white">EasyApply</h1><br/>
+<h3 align = "center" style = "color:white"> Applying for College made Easy!! </h3>
+<div class = "center hero-unit">
+
 <%= link_to "Home", root_path %>
+&nbsp
+<div style=" padding-left: 18%; padding-bottom: 5%; border-width:4px; 
+             border-style:inset; border-radius:10px 10px 10px 10px;" >
+    <%if @user_app != nil %>
+	<p><b>Course 1:</b> <i><%= @user_app.course_one %></i></p>
+	<p><b>Course 2:</b> <i><%= @user_app.course_two %></i></p>
+	<p><b>Course 3:</b> <i><%= @user_app.course_three %></i></p>
 
-<h2><%= current_user.email %>'s submitted application </h2>
+	<p>
+	<b>PLE Certificate:</b><br>
+	<%= image_tag @user_app.ple_certificate.url(:medium) %>
+	</p>
 
-<%if @user_app != nil %>
-<p><b>Course 1:</b> <i><%= @user_app.course_one %></i></p>
-<p><b>Course 2:</b> <i><%= @user_app.course_two %></i></p>
-<p><b>Course 3:</b> <i><%= @user_app.course_three %></i></p>
+	<p>
+	<b>UCE Certificate:</b><br>
+	<%= image_tag @user_app.uce_certificate.url(:medium) %>
+	</p>
 
-<p>
-<b>PLE Certificate:</b><br>
-<%= image_tag @user_app.ple_certificate.url(:medium) %>
-</p>
-
-<p>
-<b>UCE Certificate:</b><br>
-<%= image_tag @user_app.uce_certificate.url(:medium) %>
-</p>
-
-<p>
-<b>UACE Certificate:</b><br>
-<%= image_tag @user_app.uace_certificate.url(:medium) %>
-</p>
-<%else%>
-There are no applications yet
-<%end%>
+	<p>
+	<b>UACE Certificate:</b><br>
+	<%= image_tag @user_app.uace_certificate.url(:medium) %>
+	</p>
+	<%else%>
+	 <p style="padding-left:3%; padding-top:7%;font-size:20px;">
+	 	<b>"There is no application yet"</b>
+	 </p>
+	<%end%>
+</div>	
