@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   
   #Associating User model to UserApp model
   has_one :user_app
+  has_one :user_profile
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
