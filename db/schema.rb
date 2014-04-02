@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205220014) do
+ActiveRecord::Schema.define(:version => 20140402120836) do
 
   create_table "user_apps", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(:version => 20131205220014) do
     t.string   "uace_certificate_content_type"
     t.integer  "uace_certificate_file_size"
     t.datetime "uace_certificate_updated_at"
+  end
+
+  create_table "user_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "firstname"
+    t.string   "middlename"
+    t.string   "lastname"
+    t.string   "gender"
+    t.date     "date_of_birth"
+    t.string   "nationality"
+    t.integer  "phone_contact"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
