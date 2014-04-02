@@ -1,0 +1,71 @@
+<h1 align= "center" style="color:white">EasyApply</h1><br/>
+<h3 align = "center" style = "color:white"> Applying for College made Easy!! </h3>
+<div class = "center hero-unit">
+
+<%= link_to "Home", root_path %>
+&nbsp
+<div style=" padding-left: 13%; padding-bottom: 5%; border-width:4px; 
+             border-style:inset; border-radius:10px 10px 10px 10px;" >
+
+<h1>Student Profile</h1>
+
+<%= form_for @user_profile, url: user_profiles_path, :html => {:multipart => true} do |f|%>
+
+  <% if @user_profile.errors.any?  %>
+    Your application form has <%= pluralize(@user_profile.errors.count, "error") %>.
+    <% @user_profile.errors.full_messages.each  do |msg| %>
+      <li>
+        <ul><%= msg %></ul>
+      </li>
+    <% end%>
+   <% end %>
+
+  <p>
+  	<b>Profile photo:</b>
+  	<%= f.file_field :profile_photo %>
+  </p>
+
+  
+  <p>
+  	<b><%= f.label :first_name %></b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  	<%= f.text_field :first_name %>
+  </p>
+
+  <p>
+  	<b><%= f.label :middle_name %></b>&nbsp&nbsp&nbsp&nbsp 
+  	<%= f.text_field :middle_name %>
+  </p>
+
+  <p>
+  	<b><%= f.label :last_name %></b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  	<%= f.text_field :last_name %>
+  </p>
+
+  <p>
+  	<b><%= f.label :gender %></b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  	<%= f.select :gender,[" ","Male","Female"] %>
+  </p>
+
+  <p>
+  	<b><%= f.label :date_of_birth %></b>&nbsp&nbsp&nbsp&nbsp
+  	<%= f.date_select :date_of_birth, :order => [:day, :month, :year],:start_year => 1980 %>
+  </p>
+
+
+  <p>
+  	<b><%= f.label :nationality %></b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  	<%= f.text_field :nationality %>
+  </p>
+
+  <p>
+  	<b><%= f.label :phone_contact %></b>&nbsp
+  	<%= f.text_field :phone_contact %>
+  </p>
+
+  <p>
+  	<%= f.submit "Save My Profile" %>
+  </p>
+
+<% end %>
+
+</div>

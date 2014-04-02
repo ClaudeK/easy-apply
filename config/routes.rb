@@ -1,5 +1,11 @@
 EasyApply::Application.routes.draw do
   
+  # get "user_profiles/new"
+
+  # get "user_profiles/create"
+
+  # get "user_profiles/show"
+
   root to: "home#index"
   devise_for :users
 

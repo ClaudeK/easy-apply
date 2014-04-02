@@ -1,10 +1,10 @@
 <h1 align= "center" style="color:white">EasyApply</h1><br/>
 <h3 align = "center" style = "color:white"> Applying for College made Easy!! </h3>
-<div class = "center hero-unit">
 
-<div style=" padding-left: 10%; padding-bottom: 5%; border-width:4px; 
+<div style=" padding-left: 30%; padding-top:1%; padding-bottom: 5%; border-width:4px; 
              border-style:none; border-radius:10px 10px 10px 10px;" >
 <ul>
+  <li><%= link_to "Create Profile", new_user_profile_path(current_user.id) %></li>
   <li><%= link_to "Apply For Courses", new_user_app_path %></li>
   <li><%= link_to "View My Application", user_app_path(current_user.id) %></li>
   <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>

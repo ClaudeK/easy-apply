@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140402120836) do
+ActiveRecord::Schema.define(:version => 20140402183729) do
 
   create_table "user_apps", :force => true do |t|
     t.integer  "user_id"
@@ -36,15 +36,19 @@ ActiveRecord::Schema.define(:version => 20140402120836) do
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"
-    t.string   "firstname"
-    t.string   "middlename"
-    t.string   "lastname"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
     t.string   "gender"
     t.date     "date_of_birth"
     t.string   "nationality"
     t.integer  "phone_contact"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "profile_photo_file_name"
+    t.string   "profile_photo_content_type"
+    t.integer  "profile_photo_file_size"
+    t.datetime "profile_photo_updated_at"
   end
 
   create_table "users", :force => true do |t|

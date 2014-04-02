@@ -4,15 +4,15 @@ class UserProfile < ActiveRecord::Base
   belongs_to :user
   
   # UserProfile form's accessible attributes
-  attr_accessible :profile_photo, :firstname, :middlename, :lastname, :gender,
+  attr_accessible :profile_photo, :first_name, :middle_name, :last_name, :gender,
                   :date_of_birth, :nationality, :phone_contact
 
   # Profile photo attachment to the UserProfile model
   has_attached_file :profile_photo, :styles => {:medium => "300 * 300>"}
 
   #validations
-  validates :firstname, presence:true
-  validates :lastname, presence:true
+  validates :first_name, presence:true
+  validates :last_name, presence:true
   validates :gender, presence:true
   validates :date_of_birth, presence:true
   validates :nationality, presence:true
